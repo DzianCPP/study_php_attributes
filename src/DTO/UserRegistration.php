@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App\DTO;
 
-readonly class UserRegistration
+use App\DTO\BaseDto;
+use App\Validation\Required\Required;
+
+readonly class UserRegistration extends BaseDto
 {
     public function __construct(
-        public string $username,
-        public string $email,
+        #[Required] public string $username,
+        #[Required] public string $email,
     ) {
     }
 }

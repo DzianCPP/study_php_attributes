@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\DTO\UserRegistration;
+use App\Validation\Validator;
 
 require_once 'vendor/autoload.php';
 
@@ -11,4 +12,7 @@ $userRegistration = new UserRegistration(
     'john_cena@gmail.com',
 );
 
-dd($userRegistration);
+$validator = new Validator();
+
+$validator->validate($userRegistration);
+$errors = $validator->getErrors();
