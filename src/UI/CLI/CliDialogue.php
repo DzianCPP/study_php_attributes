@@ -15,6 +15,22 @@ class CliDialogue extends BaseDialogue
         $this->setParameterValue($variableToSet);
     }
 
+    public function showErrors(array $errors): void
+    {
+        echo '------ ERRORS ------' . PHP_EOL;
+        foreach ($errors as $key => $error) {
+            echo $error . PHP_EOL;
+        }
+        echo '------ ERRORS ------' . PHP_EOL;
+    }
+
+    public function showOutput(string $outputMessage): void
+    {
+        echo '----- SUCCESS -----' . PHP_EOL;
+        echo $outputMessage . PHP_EOL;
+        echo '----- SUCCESS -----' . PHP_EOL;
+    }
+
     protected function setParameterValue(string &$variableToSet): void
     {
         $variableToSet = readline();

@@ -10,4 +10,9 @@ class RequiredValidator implements ValidatorInterface
     {
         return !empty($value);
     }
+
+    public function buildError(string $propertyName, string|array $value): string
+    {
+        return "The value '$propertyName' is empty!";
+    }
 }

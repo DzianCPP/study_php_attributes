@@ -29,15 +29,9 @@ $validator->validate($userRegistration);
 $errors = $validator->getErrors();
 
 if (!$errors) {
-    echo $userRegistration->username
-        . PHP_EOL
-        . $userRegistration->email
-        . PHP_EOL
-    ;
+    $ui->showOutput(base64_encode($username . ':' . $email));
 
     return;
 }
 
-foreach ($errors as $e) {
-    echo $e;
-}
+$ui->showErrors($errors);

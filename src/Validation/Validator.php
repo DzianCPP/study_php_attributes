@@ -31,13 +31,12 @@ class Validator
                 ;
 
                 if (!$validator->validate($property->getValue($dto))) {
-                    $this->addError(
-                        $property->getName()
-                        . ' is not valid.'
-                        . PHP_EOL
-                        . 'The values you provided is: '
-                        . $property->getValue($dto)
+                    $errorMessage = $validator->buildError(
+                        $property->getname(),
+                        $property->getValue($dto)
                     );
+                    
+                    $this->addError($errorMessage);
                 }
             }
         }
