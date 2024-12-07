@@ -5,7 +5,7 @@
 
 declare(strict_types=1);
 
-use App\DTO\UserRegistration;
+use App\DTO\UserDto;
 use App\UI\CLI\CliDialogue;
 use App\Validation\Validator;
 
@@ -18,14 +18,14 @@ $ui = new CliDialogue();
 $ui->askForValue('username', $username);
 $ui->askForValue('email', $email);
 
-$userRegistration = new UserRegistration(
+$userDto = new UserDto(
     $username,
     $email
 );
 
 $validator = new Validator();
 
-$validator->validate($userRegistration);
+$validator->validate($userDto);
 $errors = $validator->getErrors();
 
 if (!$errors) {

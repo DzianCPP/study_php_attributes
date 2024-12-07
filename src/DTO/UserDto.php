@@ -7,7 +7,7 @@ namespace App\DTO;
 use App\DTO\BaseDto;
 use App\Validation\Rules\Required;
 
-readonly class UserRegistration extends BaseDto
+readonly class UserDto extends BaseDto
 {
     public function __construct(
         #[Required] public string $username,
