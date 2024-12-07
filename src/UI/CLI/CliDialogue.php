@@ -18,7 +18,7 @@ class CliDialogue extends BaseDialogue
     public function showErrors(array $errors): void
     {
         echo '------ ERRORS ------' . PHP_EOL;
-        foreach ($errors as $key => $error) {
+        foreach ($errors as $error) {
             echo $error . PHP_EOL;
         }
         echo '------ ERRORS ------' . PHP_EOL;
