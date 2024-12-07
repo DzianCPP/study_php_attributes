@@ -23,8 +23,29 @@ class Validator
                 ReflectionAttribute::IS_INSTANCEOF,
             );
 
-            dd($attributes);
+
+            foreach ($attributes as $attribute) {
+                $validator = $attribute
+                    ->newInstance()
+                    ->getValidator()
+                ;
+
+                if (!$validator->validate($property->getValue($dto))) {
+                    $this->addError(
+                        $property->getName()
+                        . ' is not valid.'
+                        . PHP_EOL
+                        . 'The values you provided is: '
+                        . $property->getValue($dto)
+                    );
+                }
+            }
         }
+    }
+
+    public function addError(string $message): void
+    {
+        $this->errors[] = $message;
     }
 
     public function getErrors()

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\DTO;
 
 use App\DTO\BaseDto;
-use App\Validation\Required\Required;
+use App\Validation\Rules\Required;
 
 readonly class UserRegistration extends BaseDto
 {
